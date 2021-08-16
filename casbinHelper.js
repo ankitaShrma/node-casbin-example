@@ -1,8 +1,6 @@
 const { newEnforcer } = require("casbin");
 const { MongooseAdapter } = require("casbin-mongoose-adapter");
 
-let enforcer;
-
 const getDefaultEnforcer = async ({ domain, user }) => {
   try {
     const adapter = await MongooseAdapter.newAdapter(
@@ -27,7 +25,7 @@ const getDefaultEnforcer = async ({ domain, user }) => {
       ],
     };
 
-    enforcer = await newEnforcer("model_conf.conf");
+    const enforcer = await newEnforcer("model_conf.conf");
     await enforcer.setAdapter(adapter);
 
     await enforcer.loadFilteredPolicy(filters);
