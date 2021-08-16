@@ -1,8 +1,8 @@
-const app = require("./app"); // Link to your server file
+const app = require("./app");
 const supertest = require("supertest");
 const request = supertest(app);
 jest.setTimeout(3000);
-it("Gets the test endpoint", async () => {
+it("Gets domain based user endpoint - multiple calls", async () => {
   // Sends GET Request to /test endpoint
   const responses = await Promise.all([
     request.get("/user/abc/domain/123"),

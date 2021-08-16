@@ -6,7 +6,6 @@ app.get("/", function (req, res) {
   res.send("Hello World");
 });
 // route with parameters
-// matches to : /books/stephenking/category/horror
 app.get("/user/:userId/domain/:domainId", async function (req, res) {
   console.log(req.params, req.url);
   try {
@@ -17,8 +16,8 @@ app.get("/user/:userId/domain/:domainId", async function (req, res) {
 
     // const [enforced, explained] = await enforcer.enforceEx(
     //   req.params.userId,
-    //   this.resource,
-    //   this.method
+    //   req.url,
+    //   req.method
     // );
 
     res.send({ length: enforcer.model.model.get("p").get("p").policy.length });
