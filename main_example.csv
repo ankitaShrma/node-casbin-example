@@ -1,0 +1,6 @@
+p, role:owner, group:api, /user/:user/domain/:domain, get|put
+
+g, user:abc, role:owner, domain:123
+
+g2, domain:123, group:api_pet
+g2, group:api, group:api_pet
